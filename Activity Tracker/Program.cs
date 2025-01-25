@@ -1,6 +1,10 @@
+using Activity_Tracker.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=ActivityTracker.db"));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
